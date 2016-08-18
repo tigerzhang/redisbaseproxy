@@ -1,0 +1,6 @@
+[submodule "resp"]
+	path = resp
+	url = https://github.com/nousxiong/resp.git
+[submodule "redox"]
+	path = redox
+	url = https://github.com/hmartiro/redox
