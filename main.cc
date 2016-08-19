@@ -11,10 +11,14 @@
 #include <resp/all.hpp>
 #include <iostream>
 #include <redox.hpp>
+#include <redis3m/redis3m.hpp>
 #include "redisproxy.h"
 
 redox::Redox rediscache;
 redox::Redox redisdb;
+
+redis3m::connection::ptr_t rediscache2;
+redis3m::connection::ptr_t redisdb2;
 
 //
 //   A single instance of a non-blocking Echo handler
@@ -190,6 +194,16 @@ int main(int argc, char **argv) {
 	if (!rediscache.connect("localhost", 6379)) return 1;
 	if (!redisdb.connect("localhost", 6380))
 		return 2;
+
+	rediscache2 = redis3m::connection::create("localhost", 6379);
+	if (rediscache2 == nullptr) {
+		return 3;
+	}
+
+	redisdb2 = redis3m::connection::create("localhost", 6380);
+	if (redisdb2 == nullptr) {
+		return 4;
+	}
 
 	ev::default_loop loop;
 	EchoServer echo(port);

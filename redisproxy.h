@@ -5,6 +5,8 @@
 #ifndef REDISBASEPROXY_REDISPROXY_H
 #define REDISBASEPROXY_REDISPROXY_H
 
+#define BUFFERLEN (int)1024
+
 #include <list>
 
 class Buffer;
