@@ -1,4 +1,11 @@
-# redisbase proxy
+# Redisbase Proxy
+
+* RedisbaseProxy 把一个 Redis 和一个持久化的、兼容 Redis 的 key value store (RedisDB) 封装成一个单一的 DB, 对外提供 Redis 兼容的接口
+* RedisbaseProxy 写操作会写通 Redis/RedisDB
+* Redis 支持 LRU 淘汰算法, Redis 可以使用的内存可配置
+* 读写时, Redis 如果没命中, 先从 RedisDB 提升数据到 Redis
+
+# Redisbase
 
 redisbase(redisbase.com):
 
