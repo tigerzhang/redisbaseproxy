@@ -4,6 +4,7 @@
 * RedisbaseProxy 写操作会写通 Redis/RedisDB
 * Redis 支持 LRU 淘汰算法, Redis 可以使用的内存可配置
 * 读写时, Redis 如果没命中, 先从 RedisDB 提升数据到 Redis
+* 用 redis db 来分库，扩容、缩容 通过移动 db 来实现。根据 key 的 hash 值，把 key 散列到不同的 db
 
 # Redisbase
 
